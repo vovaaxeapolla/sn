@@ -1,0 +1,145 @@
+.navbar {
+    width: var(--navbar-width);
+    border-right: 1px solid var(--border-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    grid-area: navbar;
+    background: var(--bg);
+    color: var(--text-color);
+    user-select: none;
+    transition: background, color, .2s;
+}
+
+.navbar-closed {
+    transform: translateX(0);
+}
+
+.navbar__bar {
+    position: relative;
+    flex-grow: 1;
+}
+
+.navbar__item {
+    position: relative;
+    margin: 1rem 0;
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 1.5rem;
+    transition: .2s;
+}
+
+.navbar__item:last-child {
+    margin-bottom: 0;
+}
+
+.navbar__item:hover {
+    background: var(--bg-hover);
+}
+
+.navbar__item:hover .navbar__icon {
+    transform: scale(1.05);
+}
+
+.navbar__link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: .25rem;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar__item-active {
+    border: 1px solid var(--border-color);
+    font-weight: bolder;
+}
+
+.navbar__icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0 1rem;
+    transition: .2s;
+    transform: scale(.95);
+    fill: var(--text-color);
+}
+
+.navbar__menu {
+    position: absolute;
+    bottom: 4rem;
+    width: 208px;
+    border-radius: .25rem;
+    background: var(--bg);
+    box-shadow: 0 0 4px 4px rgb(0, 0, 0, .1);
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.navbar__menu-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar__menu__item {
+    width: 100%;
+    height: 3rem;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar__menu__item:last-child {
+    border: none;
+}
+
+.navbar__menu__item:hover {
+    background: var(--bg-hover);
+}
+
+#navbar-close-btn {
+    display: none;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background: var(--border-color);
+}
+
+@media screen and (max-width: 500px) {
+    .navbar {
+        height: 100%;
+        width: 100%;
+        border: none;
+        position: fixed;
+        z-index: 100;
+    }
+
+    #navbar-close-btn {
+        display: flex;
+    }
+
+    .navbar-closed {
+        transform: translateX(-100%);
+    }
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+    .navbar__link p {
+        display: none;
+    }
+    .navbar{
+        width: auto;
+    }
+    .navbar__icon{
+        margin: 0;
+    }
+}

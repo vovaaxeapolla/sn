@@ -1,0 +1,200 @@
+.FormInputSubmit,
+.FormInputText {
+    position: relative;
+    max-width: 16rem;
+    width: 100%;
+    height: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 1rem;
+    margin: .5rem;
+    background: var(--bg);
+    border-radius: .25rem;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.FormInputText input {
+    padding: .25rem;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    outline: none;
+    line-height: 1.5rem;
+    border-radius: .25rem;
+    background: transparent;
+    color: var(--text-color);
+}
+
+.FormInputText>input:not(.FormInputText>input:placeholder-shown)+.FormInputText__placeholder,
+.FormInputText>input:focus+.FormInputText__placeholder {
+    top: .25rem;
+    color: grey;
+    font-size: .75rem;
+}
+
+.FormInputText input::placeholder {
+    opacity: 0;
+}
+
+.FormInputText input {
+    height: 0;
+    padding: 1rem .25rem;
+    background-clip: content-box;
+}
+
+.FormInputText input::first-line {
+    color: var(--text-color);
+}
+
+
+.FormInputText__placeholder,
+.FormInputText__error,
+.FormInputText__fine {
+    position: absolute;
+    transition: .2s;
+}
+
+.FormInputText__placeholder {
+    top: 50%;
+    font-size: 1rem;
+    left: .25rem;
+    pointer-events: none;
+}
+
+.FormInputText__error,
+.FormInputText__fine {
+    border: 2px solid;
+    border-radius: 50%;
+    margin-bottom: .25rem;
+    font-size: .75rem;
+    right: .25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+.FormInputText__fine {
+    fill: grey;
+    border-color: grey;
+}
+
+.FormInputText__error {
+    fill: var(--error-color);
+    border-color: var(--error-color);
+}
+
+.FormInputText__info {
+    position: absolute;
+    width: 8rem;
+    padding: .5rem;
+    border-radius: .25rem;
+    background: var(--bg);
+    border: 1px solid var(--border-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+    z-index: 100;
+    margin-top: .5rem;
+    right: 0;
+    box-shadow: 0 0 4px 2px rgb(0, 0, 0, .1);
+}
+
+.FormInputText__error:hover .FormInputText__info {
+    opacity: 1;
+    visibility: visible;
+}
+
+.FormInputSubmit {
+    background: transparent;
+    border: none;
+    transition: .2s ease;
+}
+
+.FormInputSubmit:hover {
+    transform: scale(1.05);
+}
+
+.FormInputSubmit input[type='submit'] {
+    padding: 0;
+    border: none;
+    background: var(--submit);
+    border-radius: .25rem;
+    color: white;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.FormInputSubmit input[type='submit']:hover {
+    background: var(--submit-hover);
+}
+
+.FormError {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--error-color);
+}
+
+.separatorOR {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    color: var(--border-color);
+    margin: 1rem;
+}
+
+.separatorOR span {
+    height: 1px;
+    width: 30%;
+    background: var(--border-color);
+}
+
+.Icon {
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup__wrapper {
+    border-radius: 1rem;
+    background: white;
+    min-width: 320px;
+    max-height: 80%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.popup__header{
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.popup__btn-close{
+    right: 1rem;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+}
+
+.popup__content{
+    padding: 1rem;
+}

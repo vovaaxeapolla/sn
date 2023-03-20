@@ -1,0 +1,155 @@
+.profile-desktop,
+.profile-mobile {
+    width: 100%;
+    padding: 0 1rem;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-mobile__header {
+    width: 100%;
+}
+
+.profile-desktop__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 600px;
+}
+
+.profile-desktop__info {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-mobile__info {
+    flex: 1 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-desktop__avatar {
+    width: 14rem;
+    height: 14rem;
+    padding: 2rem;
+}
+
+.profile-mobile__avatar {
+    width: 5rem;
+    height: 5rem;
+}
+
+.profile-desktop__avatar__img {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.profile-mobile__stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile-mobile__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-left: 1rem;
+}
+
+.profile-desktop__name {
+    margin-bottom: .5rem;
+}
+
+.profile-mobile__top,
+.profile-mobile__middle,
+.profile-mobile__stats {
+    width: 100%;
+}
+
+.profile-mobile__top {
+    display: flex;
+    align-items: center;
+}
+
+.profile-desktop__top,
+.profile-desktop__stats {
+    display: flex;
+    align-items: center;
+}
+
+.bolder {
+    font-weight: bolder;
+}
+
+.profile-mobile__stats div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-desktop__stats div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.profile-desktop__stats div span {
+    margin-left: 1rem;
+    margin-right: .25rem;
+}
+
+.profile-desktop__bottom {
+    flex-direction: column;
+}
+
+.profile-desktop__nickname {
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+.profile-desktop__settings,
+.profile-mobile__settings {
+    color: var(--text-color);
+    background: lightgrey;
+    border-radius: .25rem;
+    padding: .5rem;
+    transition: .2s;
+    margin: 0 1rem;
+}
+
+.profile-mobile__settings {
+    margin: 0;
+}
+
+.profile-desktop__settings:hover {
+    background: grey;
+}
+
+@media screen and (max-width: 500px) {
+    .profile-desktop {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .profile-mobile {
+        display: none;
+    }
+}
