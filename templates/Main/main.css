@@ -1,0 +1,88 @@
+.main {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "navbar main";
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 1fr;
+    background: var(--bg-body);
+}
+
+.main__content {
+    grid-area: main;
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.main__content::-webkit-scrollbar {
+    width: .5rem;
+    background: var(--scroll-bg);
+}
+
+.main__content::-webkit-scrollbar-thumb {
+    width: .5rem;
+    background: var(--scroll-thumb);
+    border-radius: .25rem;
+}
+
+.main__totop {
+    z-index: 10000;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    position: fixed;
+    right: 1.5rem;
+    bottom: .5rem;
+    background: var(--submit);
+    fill: white;
+    opacity: 1;
+    visibility: visible;
+    transition: .4s;
+    transform: translateY(0);
+}
+
+.main__totop-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(2rem);
+}
+
+.main__totop:hover {
+    background: var(--submit-hover);
+}
+
+.header {
+    display: none;
+    height: var(--header-height);
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    justify-content: space-between;
+    background: var(--bg);
+}
+
+.header button {
+    border-radius: 50%;
+    background: var(--btn-highlight);
+    padding: .25rem;
+}
+
+.header button i {
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        display: flex;
+    }
+
+    .main {
+        display: block;
+    }
+}

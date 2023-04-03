@@ -1,0 +1,79 @@
+.create {
+    width: 100%;
+    max-width: 600px;
+    color: var(--text-color);
+    fill: white;
+    margin: 1rem 0;
+}
+
+.create__form {
+    display: flex;
+    align-items: flex-end;
+}
+
+.create__wrapper-input {
+    display: flex;
+    align-items: flex-end;
+    width: calc(100% - 4rem);
+    max-width: 600px;
+    border-radius: .5rem;
+    background: var(--bg);
+}
+
+.create__input {
+    min-height: 3rem;
+    line-height: 1rem;
+    padding: 1rem 0;
+    width: calc(100% - 4rem);
+    position: relative;
+}
+
+.create__input:before {
+    content: attr(data-placeholder);
+    pointer-events: none;
+    position: absolute;
+    color: var(--lightgrey);
+    transition: .2s;
+}
+
+.create__input:not(:empty):before {
+    opacity: 0;
+}
+
+.create__input:focus {}
+
+.create__label {
+    cursor: pointer;
+    background: var(--submit);
+    border-radius: 50%;
+    padding: 0.25rem;
+}
+
+.create__send {
+    width: 3rem;
+    height: 3rem;
+    background: var(--bg);
+    fill: var(--lightgrey);
+    transition: .2s;
+}
+
+.create__send:hover {
+    background: var(--submit);
+    fill: #fff;
+}
+
+.create__attach {
+    width: 3rem;
+    height: 3rem;
+    background: var(--bg);
+    fill: var(--lightgrey);
+    transition: .2s;
+}
+
+.create__attach:hover {
+    fill: var(--submit);
+}
+
+.create__label input {
+    display: none;
+}

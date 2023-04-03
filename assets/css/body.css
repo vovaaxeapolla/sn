@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+path {
+    fill: inherit;
+    stroke: inherit;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+textarea {
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+:root {
+    --header-height: 4rem;
+    --navbar-width: 14rem;
+    --lightgrey: #999;
+}
+
+html[theme="light"]:root {
+    --navbar: #fff;
+    --body-bg: #e5e5e5;
+    --bg: #fff;
+    --bg-hover: #eee;
+    --border-color: #ddd;
+    --error-color: #ff3e3e;
+    --link-color: #3e97d7;
+    --text-color: #111;
+    --submit: #3e97d7;
+    --submit-hover: #2e71a1;
+    --btn-highlight: rgb(0, 0, 0, .1);
+    --btn-highlight-hover: rgba(79, 79, 79, .1);
+    --scroll-bg: #eee;
+    --scroll-thumb: #333;
+}
+
+html[theme="dark"]:root {
+    --navbar: #222;
+    --body-bg: #111;
+    --bg: #222;
+    --bg-hover: #353535;
+    --border-color: #555;
+    --error-color: #ff3e3e;
+    --text-color: #eee;
+    --link-color: #d73ed7;
+    --submit: #d73ed7;
+    --submit-hover: #9b2ea1;
+    --btn-highlight: rgb(255, 255, 255, .1);
+    --btn-highlight-hover: rgba(180, 180, 180, 0.1);
+    --scroll-bg: #333;
+    --scroll-thumb: #eee;
+}
+
+body {
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--body-bg);
+    transition: background, .2s;
+}

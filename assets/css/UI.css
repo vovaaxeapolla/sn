@@ -1,0 +1,431 @@
+.FormInputSubmit,
+.FormInputText,
+.FormTextarea {
+    position: relative;
+    max-width: 16rem;
+    width: 100%;
+    height: 2.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 1rem;
+    margin: .5rem;
+    background: var(--bg);
+    border-radius: .25rem .25rem 0 0;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.FormInputText input:focus~.border {
+    transform: scale(1);
+}
+
+.border {
+    position: absolute;
+    pointer-events: none;
+    width: calc(100% + 2px);
+    height: 2px;
+    left: -1px;
+    bottom: -1px;
+    transform: scale(0);
+    background: var(--submit);
+    z-index: 10;
+    transition: .2s;
+}
+
+.underline-anim {
+    position: relative;
+}
+
+.underline-anim:hover::before {
+    transform: scale(1);
+}
+
+.underline-anim:focus::before {
+    transform: scale(1);
+}
+
+.underline-anim::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    transform: scale(0);
+    height: .5px;
+    background: var(--link-color);
+    transition: .2s;
+}
+
+.FormTextarea {
+    width: 100%;
+    height: 100%;
+    max-height: 10rem;
+    padding: .25rem;
+    resize: vertical;
+    max-width: none;
+}
+
+.FormTextarea textarea {
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.FormInputText input {
+    padding: .25rem;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    outline: none;
+    line-height: 1.5rem;
+    border-radius: .25rem;
+    background: transparent;
+    color: var(--text-color);
+}
+
+.FormInputText>input:not(.FormInputText>input:placeholder-shown)+.FormInputText__placeholder,
+.FormInputText>input:focus+.FormInputText__placeholder {
+    top: .25rem;
+    color: grey;
+    font-size: .75rem;
+}
+
+.FormInputText input::placeholder {
+    opacity: 0;
+}
+
+.FormInputText input {
+    height: 0;
+    padding: 1rem .25rem;
+    background-clip: content-box;
+}
+
+.FormInputText input::first-line {
+    color: var(--text-color);
+}
+
+
+.FormInputText__placeholder,
+.FormInputText__error,
+.FormInputText__fine {
+    position: absolute;
+    transition: .2s;
+}
+
+.FormInputText__placeholder {
+    top: 50%;
+    font-size: 1rem;
+    left: .25rem;
+    pointer-events: none;
+}
+
+.FormInputText__error,
+.FormInputText__fine {
+    border: 2px solid;
+    border-radius: 50%;
+    margin-bottom: .25rem;
+    font-size: .75rem;
+    right: .25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+.FormInputText__fine {
+    fill: grey;
+    border-color: grey;
+}
+
+.FormInputText__error {
+    fill: var(--error-color);
+    border-color: var(--error-color);
+}
+
+.FormInputText__info {
+    position: absolute;
+    width: 8rem;
+    padding: .5rem;
+    border-radius: .25rem;
+    background: var(--bg);
+    border: 1px solid var(--border-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+    z-index: 100;
+    margin-top: .5rem;
+    right: 0;
+    box-shadow: 0 0 4px 2px rgb(0, 0, 0, .1);
+}
+
+.FormInputText__error:hover .FormInputText__info {
+    opacity: 1;
+    visibility: visible;
+}
+
+.FormInputSubmit {
+    background: transparent;
+    border: none;
+    transition: .2s ease;
+}
+
+.FormInputSubmit:hover {
+    transform: scale(1.05);
+}
+
+.FormInputSubmit input[type='submit'] {
+    padding: 0;
+    border: none;
+    background: var(--submit);
+    border-radius: .25rem;
+    color: white;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.FormInputSubmit input[type='submit']:hover {
+    background: var(--submit-hover);
+}
+
+.FormError {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--error-color);
+}
+
+.separatorOR {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    color: var(--border-color);
+    margin: 1rem;
+}
+
+.separatorOR span {
+    height: 1px;
+    width: 30%;
+    background: var(--border-color);
+}
+
+.Icon {
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+    transform: translateY(20%);
+    z-index: 10000;
+}
+
+.dropdown-menu-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    width: 100%;
+    height: auto;
+    padding: .25rem;
+    transition: .2s;
+}
+
+.dropdown-item:hover {
+    background: var(--bg-hover);
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+
+.popup-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup__wrapper {
+    color: var(--text-color);
+    fill: var(--text-color);
+    border-radius: 1rem;
+    background: var(--bg);
+    min-width: 320px;
+    max-height: 80%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.popup__header {
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.popup__btn-close {
+    right: 1rem;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+}
+
+.popup__content {
+    padding: 1rem;
+}
+
+.Img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.Img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.Img__fullscreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.Img__fullscreen img {
+    object-fit: contain;
+    height: 80%;
+}
+
+.Img__fullscreen-opened {
+    display: flex;
+}
+
+.Img img:hover+.Img__overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.Img__overlay:hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+.Img__overlay {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, .2);
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: var(--text-color);
+    transition: .2s;
+    z-index: 10;
+}
+
+.Img__overlay i {
+    width: 4rem;
+    height: 4rem;
+}
+
+.Input-multiline {
+    margin-top: .5rem;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    color: var(--text-color);
+    fill: #fff;
+    appearance: none;
+}
+
+.Input-multiline__textarea:focus {
+    outline: 1px solid var(--submit);
+}
+
+
+.Input-multiline__textarea {
+    width: calc(100% - 3rem);
+    font-size: .75rem;
+    border-radius: .5rem;
+    min-height: 1.5rem;
+    line-height: 1rem;
+    max-height: 12rem;
+    resize: none;
+    border: 1px solid var(--border-color);
+    padding: 0.25rem;
+    overflow-x: hidden;
+    background: var(--bg);
+    margin: auto 0;
+}
+
+.Input-multiline__textarea::-webkit-scrollbar {
+    border-radius: .25rem;
+    width: .5rem;
+    background: rgb(0, 0, 0, .1);
+}
+
+.Input-multiline__textarea::-webkit-scrollbar-thumb {
+    border-radius: .25rem;
+    width: .5rem;
+    background: rgb(0, 0, 0, .1);
+}
+
+.Input-multiline__send {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+    background: var(--submit);
+    padding: .25rem;
+    transition: .2s;
+}
+
+.Input-multiline__send:hover {
+    background: var(--submit-hover);
+}
+
+.Dropdown {
+    width: 2rem;
+    height: 2rem;
+    color: var(--text-color);
+    fill: var(--text-color);
+    background: var(--btn-highlight);
+    border-radius: 50%;
+    transition: .2s;
+    margin-left: auto;
+}
+
+.Dropdown:hover {
+    background: var(--btn-highlight-hover);
+}
